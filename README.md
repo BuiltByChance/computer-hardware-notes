@@ -24,3 +24,4 @@
 22. [P22 · 21.显示器重要的指标｜核对屏幕像素、刷新率与 HDR，判断游戏负载](notes/22-monitor-specifications.md)
 23. [P23 · 22-1.CPU搭配主板｜从 CPU 插槽查到主板支持列表与 BIOS 版本](notes/23-cpu-motherboard-compatibility.md)
 24. [P24 · 22-2.总结主板的知识点｜看主板布局图，分清后置接口与扩展接针](notes/24-motherboard-slots-and-rear-io.md)
+25. [P25 · 23.苹果电脑的用途与硬件的未来｜按用途选 Mac，读懂 M1 系列性能图和屏幕规格](notes/25-mac-use-cases-and-apple-silicon.md)
