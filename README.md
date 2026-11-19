@@ -12,3 +12,4 @@
 10. [P10 · 9.内存频率的用途｜读懂 DDR 速率、主板超频标注与笔记本扩容条件](notes/10-memory-data-rate.md)
 11. [P11 · 10.主板和内存条搭配以及如何查看自己电脑的内存与主板信息｜用 CPU-Z 查主板、内存速率和各槽模组](notes/11-cpu-z-mainboard-and-memory.md)
 12. [P12 · 11.电源的用途｜读懂额定功率，按显卡型号核对整机电源要求](notes/12-power-supply.md)
+13. [P13 · 12.硬盘的用途｜区分磁盘空间与运行内存，确认文件已复制](notes/13-disk-storage-and-ram.md)
