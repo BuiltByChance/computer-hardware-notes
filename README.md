@@ -22,3 +22,4 @@
 20. [P20 · 19.查看显卡信息以及天梯图的介绍｜用 GPU-Z 查显卡，按平台读天梯图](notes/20-gpu-z-and-hardware-charts.md)
 21. [P21 · 20.笔记本选择实战，游戏配置信息表｜读懂游戏本商品页，对照 Steam 系统需求](notes/21-gaming-laptops-and-system-requirements.md)
 22. [P22 · 21.显示器重要的指标｜核对屏幕像素、刷新率与 HDR，判断游戏负载](notes/22-monitor-specifications.md)
+23. [P23 · 22-1.CPU搭配主板｜从 CPU 插槽查到主板支持列表与 BIOS 版本](notes/23-cpu-motherboard-compatibility.md)
