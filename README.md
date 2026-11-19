@@ -19,3 +19,4 @@
 17. [P17 · 16.GTX和RTX区别，以及光线追踪的用途｜辨认光追效果，读懂显存规格](notes/17-ray-tracing-and-vram.md)
 18. [P18 · 17.AMD显卡的实战分析｜区分 Radeon RX 与 PRO，比较 RX 6600 和 6600 XT](notes/18-amd-radeon-graphics.md)
 19. [P19 · 18.核显、独显的区别以及用途｜查 CPU 有没有核显，判断是否需要独显](notes/19-integrated-and-discrete-graphics.md)
+20. [P20 · 19.查看显卡信息以及天梯图的介绍｜用 GPU-Z 查显卡，按平台读天梯图](notes/20-gpu-z-and-hardware-charts.md)
