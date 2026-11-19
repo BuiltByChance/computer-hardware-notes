@@ -21,3 +21,4 @@
 19. [P19 · 18.核显、独显的区别以及用途｜查 CPU 有没有核显，判断是否需要独显](notes/19-integrated-and-discrete-graphics.md)
 20. [P20 · 19.查看显卡信息以及天梯图的介绍｜用 GPU-Z 查显卡，按平台读天梯图](notes/20-gpu-z-and-hardware-charts.md)
 21. [P21 · 20.笔记本选择实战，游戏配置信息表｜读懂游戏本商品页，对照 Steam 系统需求](notes/21-gaming-laptops-and-system-requirements.md)
+22. [P22 · 21.显示器重要的指标｜核对屏幕像素、刷新率与 HDR，判断游戏负载](notes/22-monitor-specifications.md)
