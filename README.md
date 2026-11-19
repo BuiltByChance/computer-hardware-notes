@@ -10,3 +10,4 @@
 8. [P8 · 7.查看电脑的CPU信息｜用 Windows 和 CPU-Z 查型号、看频率与读跑分](notes/08-check-cpu-info.md)
 9. [P9 · 8.内存和内存条的用途｜观察 RAM 占用、读懂内存套装容量](notes/09-ram-and-memory-modules.md)
 10. [P10 · 9.内存频率的用途｜读懂 DDR 速率、主板超频标注与笔记本扩容条件](notes/10-memory-data-rate.md)
+11. [P11 · 10.主板和内存条搭配以及如何查看自己电脑的内存与主板信息｜用 CPU-Z 查主板、内存速率和各槽模组](notes/11-cpu-z-mainboard-and-memory.md)
