@@ -7,3 +7,4 @@
 5. [P5 · 4.CPU厂商、IntelCPU实战分析｜拆读酷睿型号、核对后缀与跨代性能](notes/05-intel-cpu-models.md)
 6. [P6 · 5.AMD CPU 系列详解（2024年重置版）｜查型号、读规格与区分平台](notes/06-amd-cpu-families.md)
 7. [P7 · 6.CPU 核心、线程、缓存的用途｜从商品页读懂核心数、睿频与三级缓存](notes/07-cpu-cores-threads-cache.md)
+8. [P8 · 7.查看电脑的CPU信息｜用 Windows 和 CPU-Z 查型号、看频率与读跑分](notes/08-check-cpu-info.md)
