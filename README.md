@@ -26,3 +26,4 @@
 24. [P24 · 22-2.总结主板的知识点｜看主板布局图，分清后置接口与扩展接针](notes/24-motherboard-slots-and-rear-io.md)
 25. [P25 · 23.苹果电脑的用途与硬件的未来｜按用途选 Mac，读懂 M1 系列性能图和屏幕规格](notes/25-mac-use-cases-and-apple-silicon.md)
 26. [P26 · 24.续集：时隔4年的硬件更新，显卡2070s换到了4070｜换显卡前核对电源，用 HWMonitor 看实际功耗](notes/26-gpu-upgrade-and-power-monitoring.md)
+27. [P27 · 25.续集2_时隔5年的彻底更换，7950x3d+4090略有不满｜用 CPU-Z 核对新机配置，查清内存插槽和实际速率](notes/27-7950x3d-4090-memory-verification.md)
