@@ -14,3 +14,4 @@
 12. [P12 · 11.电源的用途｜读懂额定功率，按显卡型号核对整机电源要求](notes/12-power-supply.md)
 13. [P13 · 12.硬盘的用途｜区分磁盘空间与运行内存，确认文件已复制](notes/13-disk-storage-and-ram.md)
 14. [P14 · 13.硬盘的分类以及接口｜读懂硬盘速度，核对 M.2 插槽兼容性](notes/14-drive-types-and-interfaces.md)
+15. [P15 · 14.其他存储介质｜选择文件传递方式，读懂移动硬盘规格](notes/15-removable-storage.md)
