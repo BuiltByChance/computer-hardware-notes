@@ -9,3 +9,4 @@
 7. [P7 · 6.CPU 核心、线程、缓存的用途｜从商品页读懂核心数、睿频与三级缓存](notes/07-cpu-cores-threads-cache.md)
 8. [P8 · 7.查看电脑的CPU信息｜用 Windows 和 CPU-Z 查型号、看频率与读跑分](notes/08-check-cpu-info.md)
 9. [P9 · 8.内存和内存条的用途｜观察 RAM 占用、读懂内存套装容量](notes/09-ram-and-memory-modules.md)
+10. [P10 · 9.内存频率的用途｜读懂 DDR 速率、主板超频标注与笔记本扩容条件](notes/10-memory-data-rate.md)
