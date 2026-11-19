@@ -25,3 +25,4 @@
 23. [P23 · 22-1.CPU搭配主板｜从 CPU 插槽查到主板支持列表与 BIOS 版本](notes/23-cpu-motherboard-compatibility.md)
 24. [P24 · 22-2.总结主板的知识点｜看主板布局图，分清后置接口与扩展接针](notes/24-motherboard-slots-and-rear-io.md)
 25. [P25 · 23.苹果电脑的用途与硬件的未来｜按用途选 Mac，读懂 M1 系列性能图和屏幕规格](notes/25-mac-use-cases-and-apple-silicon.md)
+26. [P26 · 24.续集：时隔4年的硬件更新，显卡2070s换到了4070｜换显卡前核对电源，用 HWMonitor 看实际功耗](notes/26-gpu-upgrade-and-power-monitoring.md)
