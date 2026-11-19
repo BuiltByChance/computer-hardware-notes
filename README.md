@@ -17,3 +17,4 @@
 15. [P15 · 14.其他存储介质｜选择文件传递方式，读懂移动硬盘规格](notes/15-removable-storage.md)
 16. [P16 · 15.显卡的用途与实战分析｜定位 PCIe 显卡槽，读懂 GeForce 型号与后缀](notes/16-graphics-cards-and-geforce-models.md)
 17. [P17 · 16.GTX和RTX区别，以及光线追踪的用途｜辨认光追效果，读懂显存规格](notes/17-ray-tracing-and-vram.md)
+18. [P18 · 17.AMD显卡的实战分析｜区分 Radeon RX 与 PRO，比较 RX 6600 和 6600 XT](notes/18-amd-radeon-graphics.md)
