@@ -16,3 +16,4 @@
 14. [P14 · 13.硬盘的分类以及接口｜读懂硬盘速度，核对 M.2 插槽兼容性](notes/14-drive-types-and-interfaces.md)
 15. [P15 · 14.其他存储介质｜选择文件传递方式，读懂移动硬盘规格](notes/15-removable-storage.md)
 16. [P16 · 15.显卡的用途与实战分析｜定位 PCIe 显卡槽，读懂 GeForce 型号与后缀](notes/16-graphics-cards-and-geforce-models.md)
+17. [P17 · 16.GTX和RTX区别，以及光线追踪的用途｜辨认光追效果，读懂显存规格](notes/17-ray-tracing-and-vram.md)
