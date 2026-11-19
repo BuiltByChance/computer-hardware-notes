@@ -1,31 +1,24 @@
 # P16 · 15.显卡的用途与实战分析｜定位 PCIe 显卡槽，读懂 GeForce 型号与后缀
 
-## 从用途判断要看什么（00:00–02:40）
+## 先确定 GPU 要完成的任务
 
-独立显卡上有负责图形计算的 GPU、显存和显示输出接口。台式机使用独显输出画面时，把显示器的数据线接到显卡挡板上的 HDMI 或 DisplayPort 接口。能显示桌面与能在指定画质下流畅玩游戏，是两个不同的要求。
+显卡上的 GPU 负责图形计算，显存保存纹理和渲染所需的数据。台式机使用独显输出时，把显示器接到显卡挡板上的 HDMI 或 DisplayPort。
 
-- **玩游戏**时，先确定游戏、分辨率、画质和目标帧率，再看相同条件下的测试。提高分辨率或增加图形特效会加重 GPU 负担，CPU 也可能限制帧率。
-- **做建筑制图、影视或动画**时，先确认常用软件中的哪一步能利用 GPU。例如，旋转复杂的三维模型要看视口流畅度，使用 GPU 渲染器输出成片则要看渲染时间和场景所需显存。
+- **游戏**关心目标分辨率和画质下能达到多少帧。比较显卡时固定游戏、场景和设置。若场景受 CPU 限制，更换显卡的收益也会受限。
+- **建筑制图、动画和影视**要看软件在哪一步调用 GPU。旋转复杂模型看视口是否流畅，导出成片看指定渲染器的耗时，同时核对显存是否足够容纳场景。
 
-## 在主板图上找到显卡槽（02:40–03:14）
+## 在主板手册上找独显的安装位置
 
-1. 用主板的**完整型号**打开厂商产品页或手册，找到「扩展槽」和主板布局图。课上用的是华硕 **ROG STRIX Z690-A GAMING WIFI D4**。京东「商品介绍」图里的 **②** 是扩展槽这一组的编号。
-2. 沿引线找靠近 CPU 的银色加固长槽。图上标着 **PCIe 5.0 x16 SafeSlot（x16）[CPU]**，即由 CPU 直连、接通 16 条通道。这块主板装单张独显时选此槽。
-3. 再对照下方长槽。它也是 x16 长度，规格却写 **PCIe 3.0 x16（x4）[芯片组]**，只接通 4 条通道。换主板时按该型号手册确认推荐槽位、通道数和所连控制器。[华硕吹雪 D4 主板布局与扩展槽](https://rog.asus.com.cn/motherboards/rog-strix/rog-strix-z690-a-gaming-wifi-d4-model/)
+以华硕 ROG STRIX Z690-A GAMING WIFI D4 为例，在产品页的主板布局图找到「扩展槽」。图中 ②、靠近 CPU 的银色长槽标为 **PCIe 5.0 x16（x16）[CPU]**，由 CPU 直连，单卡优先用它。下方长槽也能插下 x16 卡，标注却是 **PCIe 3.0 x16（x4）[芯片组]**。前一个 x16 表示槽的物理尺寸，括号内的 x4 表示实际接通的通道。换主板要重新查手册。[华硕主板布局与扩展槽](https://rog.asus.com.cn/motherboards/rog-strix/rog-strix-z690-a-gaming-wifi-d4-model/)
 
-## 拆读 GeForce 型号（03:15–12:08）
+## 从商品标题分清 GPU 型号和板卡版本
 
-课堂提到 AMD、NVIDIA 和 Intel Arc，展开分析的是 NVIDIA 面向玩家的 **GeForce** 产品线。以 **GeForce RTX 2080 Ti** 为例，先确认是台式显卡还是笔记本 GPU，再读 **RTX** 产品线、**20** 系列、**80** 档和 **Ti** 后缀。数字档位适合辨认同系列内的产品定位，跨系列的快慢要回到具体软件或游戏的测试。
+NVIDIA 的消费级显卡品牌是 **GeForce**，AMD 有 Radeon，Intel 有 Arc。以桌面 **GeForce RTX 2080 Ti** 为例，RTX 是产品线，20 是系列，80 表示该系列内的档位，Ti 属于完整型号。
 
-| 课堂例子 | 从名称能确认什么 |
+| 例子 | 能从名字判断什么 |
 |---|---|
-| GTX 950、960、980、980 Ti | 同属 900 系列，50、60、80 是不同档位。980 Ti 是正式型号，讲师用“假如有 GTX 960 Ti”解释后缀时举的是假设。[NVIDIA 900 系列档案](https://www.nvidia.com/en-us/geforce/900-series/) |
-| GTX 1050、1050 Ti、1060、1080 Ti，以及 GTX 1660 | 前四款属于 10 系列，1660 属于 16 系列。数字系列和芯片架构要分开看。GTX 16 与 RTX 20 同为 Turing 架构，RTX 20 有专用 RT 核心与 Tensor 核心。[NVIDIA 跨系列规格对照](https://www.nvidia.cn/geforce/graphics-cards/compare/) |
-| RTX 2080、2080 SUPER、2080 Ti | 这三款桌面卡的定位依次提高。官方规格依次为 **8、8、11 GB 显存**，**2944、3072、4352 个 CUDA 核心**。同属 2080 才能这样读这组三款。单凭 Ti 或 SUPER 无法推断跨型号的性能差距。[NVIDIA 20 系列规格对照](https://www.nvidia.cn/geforce/graphics-cards/compare/) |
-| RTX 3050 Ti 与 RTX 3090 Ti | 课上口述 30 系列时把不同平台放在一起。NVIDIA 将 **3050 Ti** 列为笔记本电脑 GPU，**3090 Ti** 列为台式显卡。查型号时分别进入对应的平台规格表。[30 系列笔记本 GPU](https://www.nvidia.cn/geforce/laptops/compare/30-series/) · [30 系列台式显卡](https://www.nvidia.cn/geforce/graphics-cards/30-series/) |
+| GTX 960、GTX 980 Ti、GTX 1060、GTX 1660 | 分别属于 900、900、10、16 系列。GTX 16 和 RTX 20 同属 Turing 架构，RTX 20 增加了专用光追核心。跨代快慢要查具体应用或游戏的成绩。[900 系列](https://www.nvidia.com/en-us/geforce/900-series/) · [GeForce 规格对照](https://www.nvidia.cn/geforce/graphics-cards/compare/) |
+| RTX 2080、2080 SUPER、2080 Ti | 同一代同一档的这三款定位依次提高。前两款都是 8 GB，Ti 是 11 GB。显存相同也可能是不同 GPU。[GeForce 规格对照](https://www.nvidia.cn/geforce/graphics-cards/compare/) |
+| RTX 3050 Ti Laptop GPU、RTX 3090 Ti | 前者是笔记本 GPU，后者是桌面卡。先核对平台，再比较数字和后缀。[30 系列笔记本 GPU](https://www.nvidia.cn/geforce/laptops/compare/30-series/) · [30 系列桌面卡](https://www.nvidia.cn/geforce/graphics-cards/30-series/) |
 
-## 从搜索结果核对到具体板卡（10:30–13:23）
-
-先在 NVIDIA 对应系列的规格表查完整 GPU 型号，再在板卡厂商产品页核对显存、散热和尺寸。课上在京东搜“2090”搜出了鞋，改成“2080”才出现相关显卡。NVIDIA 的 20 系列清单里有 **RTX 2080、2080 SUPER、2080 Ti**。搜索框能接受一个数字，并不足以确认有这个显卡型号。[NVIDIA GeForce 规格对照](https://www.nvidia.cn/geforce/graphics-cards/compare/)
-
-商品标题可以分层读。例如，七彩虹 **iGame GeForce RTX 3090 Ti Neptune OC 24G** 中，**RTX 3090 Ti** 是 GPU 型号，**Neptune OC（水神）**是七彩虹的一体式水冷版本，**24G** 是显存容量。旁边的 **3090 Advanced OC 24G** 少了 Ti，属于另一款 GPU。比较价格前要对齐完整型号。比较散热时还要看具体板卡，水冷版需核对机箱能否容纳冷排。[七彩虹水神产品页](https://www.colorful.cn/home/product?id=1934&mid=102)
+读完整板卡名 **七彩虹 iGame GeForce RTX 3090 Ti Neptune OC 24G** 时，GPU 型号止于 **RTX 3090 Ti**，**Neptune OC（水神）**指七彩虹的一体式水冷版本，**24G** 指显存容量。比较报价先对齐 GPU 和板卡版本，再查卡长、厚度和冷排安装空间。[七彩虹水神规格](https://www.colorful.cn/home/product?id=1934&mid=102)

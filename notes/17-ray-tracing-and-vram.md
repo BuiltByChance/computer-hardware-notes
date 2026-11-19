@@ -1,25 +1,18 @@
 # P17 · 16.GTX和RTX区别，以及光线追踪的用途｜辨认光追效果，读懂显存规格
 
-## 在同一场景里辨认光追效果（00:00–04:42）
+## 开关光追，画面会变在哪里？
 
-| 场景 | 比较 RTX OFF 和 RTX ON 时看哪里 |
+光线追踪通过计算光线与场景中物体的交点来模拟反射、间接照明等效果。GeForce RTX 从 20 系列起有专用 RT 核心加速这类计算。部分 GTX 能用着色器运行基础 DirectX 光线追踪（DXR），例如 GTX 1060 **6 GB**。能否启用还要查游戏、驱动和具体 GPU。开启后的帧率取决于场景、画质和分辨率。[NVIDIA 对 GTX 与 RTX 的 DXR 支持说明](https://www.nvidia.com/en-us/geforce/news/geforce-gtx-dxr-ray-tracing-available-now/)
+
+| 课程对照图 | 固定位置观察 |
 |---|---|
-| 《战地 V》街边起火 | 两张图里都有火，关闭光追时车身也有环境倒影。盯住同一扇车门和引擎盖，开启后能看到明显的橙色火光倒影。这组图展示的是**反射**。[NVIDIA 白皮书图 51](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) |
-| 《地铁：离去》室内进光 | 两张图里门口都有亮光。比较人物腿部和周围暗处怎样受光，可以看出光照到一处、再反弹到其他表面产生的**间接照明**。光追也会使原本过亮的区域变暗。[NVIDIA 关于《地铁：离去》全局光照的说明](https://www.nvidia.cn/geforce/news/geforce-gtx-ray-tracing-coming-soon/) |
+| 《战地 V》街边起火 | 关光追时车身已有环境倒影。开光追后，同一扇车门和引擎盖映出街边橙色火光，这一项是**反射**。[NVIDIA 白皮书图 51](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) |
+| 《地铁：离去》室内进光 | 比较门口附近的人物腿部和周围暗处，观察光线经其他表面反弹后怎样照亮物体，这一项是**间接照明**。有的区域开启光追后更暗。[NVIDIA 对全局光照的说明](https://www.nvidia.cn/geforce/news/geforce-gtx-ray-tracing-coming-soon/) |
 
-GeForce RTX 从 20 系列起配有专用 **RT Core**，用于加速光线与场景的求交等计算。部分 GTX 也能通过驱动，用着色器运行基础的 DirectX 光线追踪（DXR）效果，例如 **GTX 1060 6 GB**。核对时要精确到显卡版本、游戏及其要求。分辨率、光追质量和游戏采用的效果都会影响帧率。[NVIDIA 对 GTX 与 RTX 支持范围及性能的说明](https://www.nvidia.com/en-us/geforce/news/geforce-gtx-dxr-ray-tracing-available-now/)
+要在《战地 V》中比较两种效果，在图形设置开启 DirectX 12，按提示重启游戏。进入高级设置开启 DXR，选择 **DXR Reflections Quality**。用同一机位、分辨率和画质比较车身倒影，同时记录帧率。若帧率降得过多，降低反射质量再看差别。课上的图片只展示视觉效果。[NVIDIA 游戏设置说明](https://www.nvidia.com/en-us/geforce/news/battlefield-v-rtx-ray-tracing-out-now/)
 
-**自己复现《战地 V》的对照**。课堂展示的是网页截图。按官方设置方法，在游戏图形设置中启用 DirectX 12，按提示重启。在高级设置中开启 DXR，选择「DXR Reflections Quality」。复用同一机位，固定分辨率、其他画质和超分辨率设置，分别观察关闭和开启时车身或玻璃上的倒影，并记录帧率。若流畅度不足，先调低反射质量再比较。[NVIDIA《战地 V》DXR 设置说明](https://www.nvidia.com/en-us/geforce/news/battlefield-v-rtx-ray-tracing-out-now/)
+## 读显存时，把容量、类型和位宽分开
 
-## 从商品页核对显存（06:13–09:04）
+商品页选定板卡后，在规格中找以下三项。以七彩虹 **RTX 3090 Ti Vulcan OC 24G** 为例，**24 GB** 是 GPU 可存放纹理、几何数据和渲染缓冲区的容量。**GDDR6X** 是显存类型。**384 bit** 是 GPU 与显存之间的数据总线宽度。高分辨率纹理会增加显存需求，判断帧率还要看 GPU 本身。[NVIDIA 30 系列规格](https://www.nvidia.cn/geforce/graphics-cards/30-series/)
 
-显存供 GPU 存放渲染时要访问的数据，例如纹理、几何数据和渲染缓冲区。高分辨率纹理可能需要更多显存。判断游戏能否流畅运行，还要对照完整 GPU 型号、目标分辨率和画质下的实测帧率。
-
-在商品页先选定具体版本，读标题里的**型号和容量**，再到「商品介绍」或厂商规格表找「显存容量」「显存类型」「显存位宽」。以七彩虹 **RTX 3090 Ti Vulcan OC 24G 火神**为例，**24 GB** 是容量，**GDDR6X** 是显存类型，**384 bit** 是 GPU 与显存之间的数据总线宽度。[NVIDIA 30 系列规格表](https://www.nvidia.cn/geforce/graphics-cards/30-series/)
-
-| 课上打开的桌面显卡 | 页面显示的显存 | 复查时留意 |
-|---|---:|---|
-| 七彩虹 RTX 3080 Ti Vulcan OC 火神 / RTX 3090 Ti Vulcan OC 火神 | 12 GB / 24 GB | 两张卡都叫“火神”，先读全 3080 Ti 或 3090 Ti。 |
-| 七彩虹 RTX 3060 Ti Vulcan OC / RTX 3060 Advanced OC、Ultra W OC | 8 GB / 12 GB | 这两款普通版 3060 的容量都大于示例 3060 Ti。容量排序无法代替性能比较。官方另列有 8 GB 的普通版 3060。[NVIDIA 3060 系列规格](https://www.nvidia.cn/geforce/graphics-cards/30-series/rtx-3060-3060ti/) |
-| 微星 RTX 3050 GAMING X | 8 GB | 课上打开的是 8 GB 款。官方也列有 6 GB 桌面版，查“3050”时还要核对容量版本。[NVIDIA 30 系列规格表](https://www.nvidia.cn/geforce/graphics-cards/30-series/) |
-| 磐镭 GTX 1060 | 3 GB | 商品页选中 3G，旁边另有 6G 选项。前文提到可运行基础 DXR 的 1060 特指 6 GB 款。 |
+同叫“火神”的 RTX 3080 Ti 与 RTX 3090 Ti 分别是 **12 GB 和 24 GB**。课上选中的普通 RTX 3060 有 **12 GB**，RTX 3060 Ti 却是 **8 GB**。同一 GPU 名称也可能有不同容量，桌面 RTX 3060 另有 8 GB 款，GTX 1060 商品页同时列 3 GB 和 6 GB。查游戏需求时要带上显存版本。[NVIDIA RTX 3060 系列对照](https://www.nvidia.cn/geforce/graphics-cards/30-series/rtx-3060-3060ti/)

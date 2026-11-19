@@ -1,33 +1,14 @@
 # P10 · 9.内存频率的用途｜读懂 DDR 速率、主板超频标注与笔记本扩容条件
 
-看到「32 GB（16 GB × 2）DDR4-3200」，先拆成三项：容量决定能容纳多少数据，DDR 代际决定能配哪类插槽，标称数据传输率影响可达到的内存带宽。要知道一套内存装进自己的电脑能跑多快，还得查主板、CPU 和具体内存条的规格。
+**DDR4-3200** 表示 DDR4 内存每秒可传输 32 亿次（3200 MT/s）。DDR 在时钟的两个边沿传输，实际时钟约 **1600 MHz**。在相同总线宽度、通道数下，传输率越高，理论带宽越大。容量另算，如「DDR5-6000，16 GB × 2」为 32 GB。[金士顿对 MT/s 与 MHz 的说明](https://www.kingston.com/cn/blog/pc-performance/mts-vs-mhz)
 
-## 从套条标题读出速率（00:00–02:29）
+## 主板支持多快，套条能跑多快
 
-| 课中商品 | 容量 | 代际 | 标称数据传输率 |
-| --- | --- | --- | --- |
-| 金士顿 FURY Beast DDR4-3200 | 16 GB × 2，共 32 GB | DDR4 | 3200 MT/s |
-| 芝奇 DDR5-6000 | 16 GB × 2，共 32 GB | DDR5 | 6000 MT/s |
+- **先对完整型号和内存代际。** 华硕 ROG STRIX Z690-A GAMING WIFI **D4** 用 DDR4，同名无 D4 后缀的版本用 DDR5，两代插槽的防呆缺口不同。[D4 版规格](https://rog.asus.com.cn/motherboards/rog-strix/rog-strix-z690-a-gaming-wifi-d4-model/) · [DDR5 版手册](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1700/ROG_STRIX_Z690-A_GAMING_WIFI/C19960_ROG_STRIX_Z690-A_GAMING_WIFI_UM_V2_WEB.pdf)
+- **再看「规格参数 → 内存」。** 「4 × DIMM，DDR5-6400（O.C.）」分别说明四个槽和主板列出的超频档。以 B660-F GAMING WIFI 为例，规格同时列有 DDR5-4800 和多个更高的 O.C. 档。实际速率还取决于 CPU、套条和设置。购前核对主板内存兼容列表，装好后读 CPU-Z「内存 → DRAM Frequency」，乘 2 核对。[华硕 B660-F 规格](https://rog.asus.com.cn/motherboards/rog-strix/rog-strix-b660-f-gaming-wifi-model/spec/)
 
-商家常把 3200 写作“频率”。这里更准确的单位是 **MT/s**（每秒百万次传输）。DDR 在时钟的上升沿和下降沿都传输数据，所以 DDR4-3200 对应约 **1600 MHz 的时钟、3200 MT/s 的数据传输率**。相同通道配置下，更高的传输率意味着更高的理论带宽。应用能快多少，还取决于它花了多少时间等待内存。[金士顿对 MT/s 与 MHz 的说明](https://www.kingston.com/cn/blog/pc-performance/mts-vs-mhz)
+## 笔记本扩容还要查每槽容量
 
-## 查主板时，把代际、插槽和超频档分开读（02:30–06:45）
+拯救者 Y9000P 2022 示例标有 **16 GB 内存、512 GB SSD**。对应平台手册列出两个 DDR5-4800 SO-DIMM 插槽，商品页写最高 32 GB。若原机是 1 × 16 GB，可加一根兼容的 16 GB。若是 2 × 8 GB，两槽已满，升至 32 GB 要换 2 × 16 GB。商品页未给出这台机器的出厂分配，另列的 M.2 接口用于装硬盘。[联想平台规格，第 2 页](https://psref.lenovo.com/syspool/Sys/PDF/Legion/Lenovo_Legion_5_Pro_16IAH7H/Lenovo_Legion_5_Pro_16IAH7H_Spec.pdf#page=2)
 
-1. **抄下完整主板型号。** 同样叫 Z690-A 吹雪，ROG STRIX Z690-A GAMING WIFI **D4** 使用 DDR4，课中切换到的无 D4 后缀版本使用 DDR5。两代台式内存的防呆缺口位置不同，选条时以该型号的规格为准。[华硕 D4 版产品页](https://rog.asus.com.cn/motherboards/rog-strix/rog-strix-z690-a-gaming-wifi-d4-model/) · [华硕 DDR5 版说明书](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1700/ROG_STRIX_Z690-A_GAMING_WIFI/C19960_ROG_STRIX_Z690-A_GAMING_WIFI_UM_V2_WEB.pdf)
-2. **在「商品介绍」和「规格与包装」找到内存一栏。** DDR5 版 Z690-A 的介绍图写着「4 × DIMM DDR5 6400（超频）+」。4 是物理插槽数，6400 是主板列出的超频档。刚才那套芝奇内存自身标称 6000 MT/s。把主板支持的档位和套条额定速率分开记录。
-3. **核对默认档和超频档。** 另一块 ROG STRIX B660-F GAMING WIFI 的官网规格列出 4 个 DDR5 插槽、最大 128 GB、DDR5-4800，以及 5000 至 6000 的多个超频档。课中商家简写的“5200 及以上”不代表最低必须买 5200。要使用较高档位，需核对处理器、内存套装和主板的内存兼容列表（QVL）；装好后的实际速率仍要读取确认。[华硕 B660-F 官方内存规格](https://rog.asus.com.cn/motherboards/rog-strix/rog-strix-b660-f-gaming-wifi-model/spec/)
-
-## 笔记本写着「16 GB，最大 32 GB」，还缺什么（08:23–10:40）
-
-课中的联想拯救者 Y9000P 2022 商品标题写有 **16 GB 内存、512 GB SSD**。「规格与包装」列出内存最大支持容量 **32 GB**，约 09:07 的「商品介绍」图还标有 **DDR5-4800**。页面另列的两个 M.2 接口用于存储设备。
-
-决定怎么买之前，查整机的具体型号及出厂配置，确认内存插槽总数、已占用几个、每根多大。联想的 Legion 5 Pro 16IAH7H 平台规格列有两个 DDR5 SO-DIMM 插槽，支持双通道，所列内存配置为 DDR5-4800。**槽位总数不能告诉你还剩几个空槽**。[联想平台规格，第 2 页](https://psref.lenovo.com/syspool/Sys/PDF/Legion/Lenovo_Legion_5_Pro_16IAH7H/Lenovo_Legion_5_Pro_16IAH7H_Spec.pdf#page=2)
-
-- 若核实原装为 **1 × 16 GB**、另一槽为空，可按兼容规格再加一根 16 GB，组成 32 GB。
-- 若原装为 **2 × 8 GB**，两槽已满；在这个双槽示例中，升到 32 GB 可换成 2 × 16 GB。课堂没有查到所售那台机器每槽的出厂配置。
-
-## 用任务管理器判断自己缺的是不是容量（10:41–13:37）
-
-右键 Windows「开始」→「任务管理器」→「进程」，找到浏览器，记下「内存」列。关闭几个不再使用的标签页，等读数刷新再比较。课中 Chrome 进程组约从 **1196 MB** 降至 **900 MB**，整机内存占用约从 **57%** 降至 **53%**。这能验证关闭页面释放了部分容量；评估更高速率能带来多少收益，需要在相同工作负载下另作比较。
-
-讲师在 2022 年以 16 GB 举例说明办公和一般计算机学习，以 32 GB 或以上举例说明影视设计。为自己的电脑定容量时，用平时会同时打开的工程、素材和应用观察峰值，比按专业名称选一个固定数字更有针对性。
+**容量与速度可以分别验证。** 在任务管理器「进程 → 内存」观察 Chrome。课中关闭标签页后，其占用约从 1196 MB 降到 900 MB。这次测到了约 296 MB 的占用变化。要测传输率的收益，可以保持打开的项目和内存容量相同，改用另一速率后比较同一任务的耗时。

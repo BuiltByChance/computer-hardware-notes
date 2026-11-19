@@ -1,28 +1,19 @@
 # P11 · 10.主板和内存条搭配以及如何查看自己电脑的内存与主板信息｜用 CPU-Z 查主板、内存速率和各槽模组
 
-升级内存前，先查主板完整型号，再看现有内存如何运行、每个插槽里装了什么。CPU-Z 的「主板」「内存」「SPD」三页分别回答这三个问题。
+## CPU-Z 的三页分别看什么
 
-## 找到本机主板与当前内存速率（00:00–02:49）
+解压 CPU-Z 后，在 x64 Windows 上运行 `cpuz_x64.exe`。下面的读数来自一台使用技嘉 Z390 主板的电脑。[CPU-Z 官方下载](https://www.cpuid.com/softwares/cpu-z.html)
 
-1. **打开 CPU-Z。** 在开始菜单搜索 `cpu`，从结果中打开已下载的 `cpuz_x64.exe`。如果中文版 ZIP 解压后没有出现在搜索结果中，也可从解压目录直接启动。视频用的是 2.00.0 x64；截至 2026-11-19，CPUID 官网列出的 Windows x86/x64 版为 3.02，仍免费提供中文 ZIP。[CPU-Z 官方下载页](https://www.cpuid.com/softwares/cpu-z.html)
-2. **「主板」（Mainboard）→ 制造商、型号。** 讲师电脑显示 `Gigabyte Technology Co. Ltd.`、`Z390 GAMING X-CF`。修订栏只显示 `x.x`。当厂商提供多个硬件修订版时，核对板上或包装上的 `REV` 标记，再选对应的规格页。
-3. **「内存」（Memory）→ 类型、大小、通道数。** 画面显示 DDR4、32 GB、双通道。双通道描述内存控制器的工作方式。讲师的四条 8 GB 占满了四个槽，仍以双通道运行。
-4. **「内存」→「时序」→「内存频率」（DRAM Frequency）。** 示例读数在 1500 MHz 附近波动。一帧为 1499.6 MHz，乘 2 得 2999.2 MT/s，约为 **DDR4-3000**。换算来自 DDR 在每个时钟周期的两个边沿传输数据，与通道数无关。看这一栏即可，上方约 4300 MHz 的「北桥频率」是另一个指标。[金士顿对 MHz 与 MT/s 的说明](https://www.kingston.com/cn/blog/pc-performance/mts-vs-mhz)
+| 页面 | 读取与判断 |
+| --- | --- |
+| **主板（Mainboard）** | 记录制造商和完整型号。示例为 Gigabyte、`Z390 GAMING X-CF`，修订栏只写 `x.x`。选官网规格页时，再对照主板或包装上的 `REV` 标记。 |
+| **内存（Memory）** | 查总容量、通道数和「时序 → DRAM Frequency」。示例为 DDR4、32 GB、双通道，时钟约 1499.6 MHz，乘 2 得约 **3000 MT/s**。乘 2 来自 DDR 每周期传输两次，和通道数无关。 |
+| **SPD** | 在「内存插槽选择」逐槽查看容量、模组厂商、颗粒厂商和料号。示例四槽各 8 GB，共 32 GB，仍以双通道运行。Galaxy Microsystems 是模组厂商，Micron 是颗粒厂商。料号为空时可查内存条标签。 |
 
-## 逐槽核对内存条（07:16–07:54）
+SPD 的「最大带宽」和时序表描述内存条保存的参数。例如 XMP-3002 列里的 **1501 MHz、16-18-18-38、1.350 V** 是一组预设。确认当前速率要回「内存」页读 DRAM Frequency。[英特尔 XMP 说明](https://www.intel.cn/content/www/cn/zh/gaming/extreme-memory-profile-xmp.html)
 
-在「SPD」页打开左上角「内存插槽选择」，依次选 `#1` 到 `#4`，等字段刷新，再记录每槽容量、模组制造商和型号。课中四个槽都读到 **DDR4、8 GB**，合计 32 GB，与「内存」页一致。
+## 用主板规格确认能装什么
 
-| SPD 字段 | 讲师电脑上的读数 | 查配件时怎么用 |
-| --- | --- | --- |
-| 制造商 / DRAM 制造商 | Galaxy Microsystems Ltd. / Micron Technology | 前者是整条内存的模组厂商，后者是内存颗粒厂商。查同款时优先找模组料号（Part Number）。这台机器的型号、序列号字段留空，精确料号仍需查标签或购买记录。 |
-| 最大带宽 | DDR4-3002（1501 MHz） | 这是当前所选内存条的 SPD 信息。想确认电脑此刻运行的速率，要回到「内存」页读 DRAM Frequency。 |
-| SPD 扩展 / 时序表 | XMP 2.0；XMP-3002 一栏为 1501 MHz、16-18-18-38、1.350 V | 这些是模组保存的预设参数。表格里的电压不能用作当前电压读数。课堂只读取了档案。[英特尔 XMP 说明](https://www.intel.cn/content/www/cn/zh/gaming/extreme-memory-profile-xmp.html) |
+在厂商页面打开对应型号与修订版的「规格 → 内存」，查 DDR 代际、槽数、容量与速率。标有 **O.C.** 的是超频档。再按候选套条的料号，在「支持 → 内存兼容列表」（QVL）里核对测试过的容量和插条数量。
 
-## 用主板官网判断能配哪些条（02:50–05:54）
-
-1. 用制造商和完整型号搜索，进入对应主板的「规格」（Specification）→「内存」（Memory）。看 DDR 代际、插槽数、支持速率和 `O.C.` 标记。再到「支持」里的内存兼容列表（QVL），核对目标套装的料号、容量和插条数量。
-2. **Z390 示例。** 讲师打开的是 Z390 GAMING X **rev. 1.0** 的产品页。它有四个 DDR4 插槽；官方规格将 3000、4000、4133、4266 等列为超频档。讲师设想用 DDR4-4000 的 4 × 8 GB 或 2 × 16 GB，两种组合都是 32 GB。达到哪个速率取决于 CPU、内存组合和设置，视频中本机实际读到的仍是约 3000 MT/s。[技嘉 Z390 GAMING X rev. 1.0 规格](https://www.gigabyte.com/Motherboard/Z390-GAMING-X-rev-10/sp)
-3. **Z690 示例。** 讲师另外查到 Z690 AORUS ELITE 的 DDR5 版本，在网页上看到「XMP 6000+」。技嘉现将该页归在 **rev. 1.x**，规格表列有 DDR5-6000（O.C.）。查自己的机器时，同样要对上产品后缀和修订版。[技嘉 Z690 AORUS ELITE rev. 1.x 规格](https://www.gigabyte.com/Motherboard/Z690-AORUS-ELITE-rev-1x/sp)
-
-选购时，把现有条的代际、外形、每条容量和料号与主板支持列表放在一起核对。讲师偏好同速率的组合；相同的标称速率本身不能确认两套内存一起工作的稳定性。
+技嘉 **Z390 GAMING X rev. 1.0** 有四个 DDR4 槽，3000、4000、4266 均列为 O.C.。本机实际约为 DDR4-3000，换 DDR4-4000 是设想。另一款 **Z690 AORUS ELITE rev. 1.x** 的 DDR5 版列有 DDR5-6000（O.C.），不能把这组规格套到 Z390。混装两套标称速率相同的内存，仍需核对整组兼容性。[技嘉 Z390 规格](https://www.gigabyte.com/Motherboard/Z390-GAMING-X-rev-10/sp) · [技嘉 Z690 规格](https://www.gigabyte.com/Motherboard/Z690-AORUS-ELITE-rev-1x/sp)

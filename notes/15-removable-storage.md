@@ -1,26 +1,19 @@
 # P15 · 14.其他存储介质｜选择文件传递方式，读懂移动硬盘规格
 
-## 按文件和使用场景选介质
+## 文件放在哪里，取决于下一步怎么用
 
-| 场景 | 选择依据 |
+| 需求 | 介质与取舍 |
 |---|---|
-| 读取旧软盘或光盘（00:26–02:05） | 软盘要配对应尺寸的软驱，常见的 3.5 英寸高密度软盘容量只有 **1.44 MB**。光盘要配支持该格式的光驱，读 CD、DVD、蓝光盘时先查光驱支持哪些格式；若要写盘，还要确认刻录能力和盘片类型。[IBM 软盘简史](https://www.ibm.com/history/floppy-disk) |
-| 带课件换电脑、准备系统安装介质（02:05–03:02） | U 盘可重复写入，能离线携带文件，也能制作成可启动的系统安装盘。若只需在联网电脑之间取课件，网盘省去随身带盘，但要能登录或通过分享链接取到文件。重要资料另留一份独立副本。 |
-| 笔记本内置盘位已满，或要当面交付上百 GB 的工程资料（03:02–04:38） | USB 移动硬盘可以在机外增加可用容量。比较移动机械硬盘（HDD）和移动固态硬盘（SSD）时，先看容量和预算；若经常拷贝大文件，再比较顺序读写速度、两台电脑的接口以及可用的线缆。 |
+| 读取旧资料 | 常见 3.5 英寸高密度软盘容量为 1.44 MB，需要匹配的软驱。光盘需要支持对应格式（CD、DVD 或蓝光）的光驱。写盘还要核对刻录功能和盘片类型。[IBM 软盘简史](https://www.ibm.com/history/floppy-disk) |
+| 在另一台电脑取课件，或装系统 | 能联网并有访问权限时可用网盘。离线带文件可用 U 盘。要从 U 盘安装系统，需先将它制作成可启动的安装介质。重要资料另留独立副本。 |
+| 笔记本盘位已满，或要带走上百 GB 的工程文件 | USB 移动硬盘可在机外扩容。同等预算下看移动机械硬盘（HDD）能提供多大容量。频繁拷贝大文件时，看移动固态硬盘（SSD）的持续读写表现。 |
 
-## 从商品页核对移动硬盘规格（03:16–04:50）
+## 从商品规格估算拷贝时间
 
-课堂在京东搜索“移动硬盘”和“移动固态硬盘”。复查时先选定**完整型号和容量**，再打开「规格与包装」看接口和随附线缆。商品主图上的“最高读写”是厂商在特定条件下给出的数值。
+先选完整型号和容量，再查「规格与包装」里的接口、随附线缆，以及厂商标注的顺序读取、写入速度。**Gb/s 是每秒多少吉比特，MB/s 是每秒多少兆字节，8 bit = 1 byte**。USB 接口的带宽上限和硬盘的文件传输速度是两个数值。
 
-| 课堂例子 | 怎样读规格 |
-|---|---|
-| 西部数据 Elements SE 2 TB 移动机械硬盘 | 商品页写 2.5 英寸、USB 3.0。西数规格列为 USB 3.2 Gen 1，**5 Gb/s** 表示接口带宽。课堂口述的约 **110 MB/s** 是估值，视频未测这块盘的文件传输速度。[西数 2 TB 规格](https://www.westerndigital.com/products/portable-drives/wd-elements-se-usb-3-0-hdd?sku=WDBEPK0020BBK-WESN) |
-| 三星 T7 1 TB 与口头提及的 T5 | T7 标称顺序读取最高 **1050 MB/s**、写入最高 **1000 MB/s**。接近标称值需要主机和线缆支持 USB 3.2 Gen 2（10 Gb/s），且启用 UASP 传输模式。仅看 USB-C 插头形状无法判断速度。原版 T5 标称传输速度最高 **540 MB/s**。[三星 T7 规格](https://www.samsung.com.cn/memory-storage/portable-ssd/t7-1tb-gray-external-storage-nvme-1050-mbs-mu-pc1t0t-ww/) · [三星 T7 与 T5 对照资料](https://download.semiconductor.samsung.com/resources/brochure/PSSD-T7_Series-Brochure_Web_2109_230509.pdf) |
-| 闪迪 E61 1 TB 移动固态硬盘 | 录课商品图标注 **IP55、2 米跌落防护**。闪迪中国现行黑色 1 TB 型号 `SDSSDE61-1T00-Z25` 标注 **IP65、最高 3 米跌落防护**，顺序读写最高 **1050 / 1000 MB/s**。核对手中产品的完整型号、包装和防护条件。[闪迪 1 TB 官方规格](https://www.sandisk.com/zh-cn/products/ssd/external-ssd/portable-ssd-sandisk-extreme-usb-3-2?sku=SDSSDE61-1T00-Z25) |
+- **西部数据 Elements SE 2 TB** 的 USB 3.2 Gen 1 接口标称 5 Gb/s。从这项规格推不出盘片读写速度，课程中约 110 MB/s 是估值。[西数规格](https://www.westerndigital.com/products/portable-drives/wd-elements-se-usb-3-0-hdd?sku=WDBEPK0020BBK-WESN)
+- **三星 T7 1 TB** 标称顺序读、写最高 1050、1000 MB/s，接近该速度需要支持 USB 3.2 Gen 2（10 Gb/s）和 UASP 的主机及合适线缆。相同形状的 USB-C 口可能更慢。上一代 T5 标称最高 540 MB/s。[三星 T7 规格](https://www.samsung.com.cn/memory-storage/portable-ssd/t7-1tb-gray-external-storage-nvme-1050-mbs-mu-pc1t0t-ww/) · [三星 T5/T7 对照](https://download.semiconductor.samsung.com/resources/brochure/PSSD-T7_Series-Brochure_Web_2109_230509.pdf)
+- **闪迪 E61 1 TB** 的旧商品图标 IP55、2 米跌落防护。现行黑色款 `SDSSDE61-1T00-Z25` 标 IP65、最高 3 米。买盘时按包装上的完整料号查防护条件。[闪迪规格](https://www.sandisk.com/zh-cn/products/ssd/external-ssd/portable-ssd-sandisk-extreme-usb-3-2?sku=SDSSDE61-1T00-Z25)
 
-## 交付大文件时，分别看写入和读取
-
-以课上口述的“带一百多 GB 资料去客户现场”为例，**GB** 表示要装多少资料，**MB/s** 表示每秒能传多少数据。实际操作可分两次核对。
-
-1. **出发前拷进移动盘**。先核对资料总大小和移动盘剩余空间。此时电脑读、移动盘写，任一端的速度或 USB 连接都可能限制进度。复制完成后，从移动盘打开关键文件，确认拿对版本，再安全弹出。
-2. **到现场拷到客户电脑**。此时移动盘读、客户电脑写。即使移动盘读速很高，目标盘写入较慢也会延长等待。交付后从客户电脑的目标目录打开文件，确认拔掉移动盘后仍可访问。
+交付 100 GB 文件时，若实际平均速度为 100 MB/s，单次复制约需 1000 秒，即近 17 分钟。出发前写入移动盘，现场再从移动盘读出，分别受来源盘读取、连接带宽和目标盘写入限制。预留两次复制的时间，并从目标目录打开关键文件确认交付成功。
